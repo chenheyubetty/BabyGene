@@ -8,11 +8,19 @@ import android.widget.CheckBox;
 import android.widget.Switch;
 import android.widget.TextView;
 
-
-//import com.google.gson.Gson;
-//import com.google.gson.GsonBuilder;
-//import com.google.gson.JsonElement;
-//import com.google.gson.JsonParser;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,17 +32,29 @@ import org.json.JSONObject;
 import android.util.Log;
 import android.support.v4.app.FragmentActivity;
 
-
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.lang.ref.WeakReference;
+import java.net.HttpURLConnection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    private String toShow;
+    /** Request queue for our network requests. */
+    private RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,13 +86,56 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     dayString = "" + day;
                 }
-                HttpHandler sh = new HttpHandler();
+                //HttpHandler sh = new HttpHandler();
                 // Making a request to url and getting response
                 String url = "https://holidayapi.com/v1/holidays?" +
                         "key=fcb87d16-5a12-4026-88a5-5b44ce0f39da&country=US&year=2018&" +
                         "month=" + monthString +
                         "&day=" + dayString;
-                String jsonStr = sh.makeServiceCall(url);
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                        Request.Method.GET,
+                        url,
+                        null,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(final JSONObject response) {
+                                try {
+                                    toShow = response.toString();
+                                    gotResult();
+                                } catch (Exception e) {
+                                    Log.w(TAG, e.toString());
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.w(TAG, error.toString());
+                    }
+                });
+                requestQueue.add(jsonObjectRequest);
+                /*StringRequest stringRequest = new StringRequest(
+                        Request.Method.POST, requestURL,
+                        this::handleApiResponse, this::handleApiError) {
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        // Set up headers properly
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/octet-stream");
+                        headers.put("Ocp-Apim-Subscription-Key", SUBSCRIPTION_KEY);
+                        return headers;
+                    }
+                    @Override
+                    public String getBodyContentType() {
+                        // Set the body content type properly for a binary upload
+                        return "application/octet-stream";
+                    }
+                    @Override
+                    public byte[] getBody() {
+                        return stream.toByteArray();
+                    }
+                };*/
+                //requestQueue.add(stringRequest);
+                /*String jsonStr = sh.makeServiceCall(url);
                 Log.e(TAG, "Response from url: " + jsonStr);
                 if (jsonStr != null) {
                     try {
@@ -100,10 +163,22 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                      */
-                }
 
             }
         });
+    }
+    public void gotResult() {
+        TextView holiday = findViewById(R.id.Holiday);
+        JsonParser parser = new JsonParser();
+        JsonObject api = parser.parse(toShow).getAsJsonObject();
+        JsonArray holidays = api.getAsJsonArray("Holidays");
+        try {
+            String name = holidays.get(0).getAsJsonObject().getAsJsonPrimitive("name").getAsString();
+            holiday.setText(name);
+        } catch (NullPointerException e) {
+            String name = "It's not a holiday.";
+            holiday.setText(name);
+        }
     }
     private void generate() {
         Button generate = findViewById(R.id.Generate);
