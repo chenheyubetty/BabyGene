@@ -88,31 +88,36 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //HttpHandler sh = new HttpHandler();
                 // Making a request to url and getting response
-                String url = "https://holidayapi.com/v1/holidays?" +
-                        "key=fcb87d16-5a12-4026-88a5-5b44ce0f39da&country=US&year=2018&" +
-                        "month=" + monthString +
-                        "&day=" + dayString;
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                        Request.Method.GET,
-                        url,
-                        null,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(final JSONObject response) {
-                                try {
-                                    toShow = response.toString();
-                                    gotResult();
-                                } catch (Exception e) {
-                                    Log.w(TAG, e.toString());
+                try {
+                    String url = "https://holidayapi.com/v1/holidays?" +
+                            "key=fcb87d16-5a12-4026-88a5-5b44ce0f39da&country=US&year=2018&" +
+                            "month=" + monthString +
+                            "&day=" + dayString;
+                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                            Request.Method.GET,
+                            url,
+                            null,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(final JSONObject response) {
+                                    try {
+                                        toShow = response.toString();
+                                        gotResult();
+                                    } catch (Exception e) {
+                                        Log.w(TAG, e.toString());
+                                    }
                                 }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.w(TAG, error.toString());
-                    }
-                });
-                requestQueue.add(jsonObjectRequest);
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.w(TAG, error.toString());
+                        }
+                    });
+                    requestQueue.add(jsonObjectRequest);
+                } catch (Exception e) {
+                    String error = e.toString();
+                    holiday.setText(error);
+                }
                 /*StringRequest stringRequest = new StringRequest(
                         Request.Method.POST, requestURL,
                         this::handleApiResponse, this::handleApiError) {
