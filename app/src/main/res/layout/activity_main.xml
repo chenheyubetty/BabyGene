@@ -226,5 +226,23 @@
             android:text="TextView"
             android:textSize="8sp" />
 
+        <Button
+            android:id="@+id/Birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birthday" />
+
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/Holiday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

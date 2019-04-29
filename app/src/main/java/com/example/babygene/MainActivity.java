@@ -8,6 +8,10 @@ import android.widget.CheckBox;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +19,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         generate();
+        birthday();
+    }
+    private void birthday() {
+        Button birthday = findViewById(R.id.Birthday);
+        birthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                int month = random.nextInt(12) + 1;
+                int day = random.nextInt(28) + 1;
+                String theDate = month + "/" + day;
+                TextView date = findViewById(R.id.Date);
+                date.setText(theDate);
+            }
+        });
     }
     private void generate() {
         Button generate = findViewById(R.id.Generate);
