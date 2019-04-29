@@ -8,12 +8,33 @@ import android.widget.CheckBox;
 import android.widget.Switch;
 import android.widget.TextView;
 
+
+//import com.google.gson.Gson;
+//import com.google.gson.GsonBuilder;
+//import com.google.gson.JsonElement;
+//import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+//import org.json.JSON
+//import org.json.parser.JSONParser;
+//import org.json.parser.ParseException;
+
+import android.util.Log;
+import android.support.v4.app.FragmentActivity;
+
+
+
+
 import org.w3c.dom.Text;
 
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +52,56 @@ public class MainActivity extends AppCompatActivity {
                 int day = random.nextInt(28) + 1;
                 String theDate = month + "/" + day;
                 TextView date = findViewById(R.id.Date);
+                TextView holiday = findViewById(R.id.Holiday);
                 date.setText(theDate);
+                String monthString;
+                String dayString;
+                if (month < 10) {
+                    monthString = "0" + month;
+                } else {
+                    monthString = "" + month;
+                }
+                if (day < 10) {
+                    dayString = "0" + day;
+                } else {
+                    dayString = "" + day;
+                }
+                HttpHandler sh = new HttpHandler();
+                // Making a request to url and getting response
+                String url = "https://holidayapi.com/v1/holidays?" +
+                        "key=fcb87d16-5a12-4026-88a5-5b44ce0f39da&country=US&year=2018&" +
+                        "month=" + monthString +
+                        "&day=" + dayString;
+                String jsonStr = sh.makeServiceCall(url);
+                Log.e(TAG, "Response from url: " + jsonStr);
+                if (jsonStr != null) {
+                    try {
+                        JSONObject jsonObj = new JSONObject(jsonStr);
+                        JSONArray holidays = jsonObj.getJSONArray("holidays");
+                        JSONObject days = holidays.getJSONObject(0);
+                        String theHoliday = days.getString("name");
+                        holiday.setText(theHoliday);
+                    } catch (final JSONException e) {
+                        String error = "error";
+                        holiday.setText(error);
+                    } catch (final Exception e) {
+                        String exception = e.toString();
+                        holiday.setText(exception);
+                    }
+                } else {
+                    Log.e(TAG, "Couldn't get json from server.");
+                    /**
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(),
+                                    "Couldn't get json from server. Check LogCat for possible errors!",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+                     */
+                }
+
             }
         });
     }
