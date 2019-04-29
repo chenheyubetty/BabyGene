@@ -9,18 +9,199 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/Baby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BabyPredictor"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/Father"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Father" />
+            android:text="Father"
+            android:visibility="visible" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/WidowF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Switch" />
+            android:text="Widow's Peak" />
+
+        <Switch
+            android:id="@+id/DimplesF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dimples"
+            android:visibility="visible" />
+
+        <Switch
+            android:id="@+id/FrecklesF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Freckles"
+            android:visibility="visible" />
+
+        <Switch
+            android:id="@+id/EarlobesF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Free Earlobes"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/EyeColorF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eye Color"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/BrownF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brown"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/BlueF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blue" />
+
+        <CheckBox
+            android:id="@+id/GreenF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Green"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/Mother"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mother"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:fontFamily="sans-serif-medium" />
+
+        <Switch
+            android:id="@+id/WidowM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Widow's Peak" />
+
+        <Switch
+            android:id="@+id/DimplesM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dimples"
+            android:visibility="visible" />
+
+        <Switch
+            android:id="@+id/FrecklesM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Freckles"
+            android:visibility="visible" />
+
+        <Switch
+            android:id="@+id/EarlobesM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Free Earlobes"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/EyeColorM"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:text="Eye Color"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/BrownM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brown"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/BlueM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blue" />
+
+        <CheckBox
+            android:id="@+id/GreenM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Green"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/Generate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Generate" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Baby"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/WidowB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/DimplesB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/EarlobesB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/FrecklesB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/BrownB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/GreenB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/BlueB"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="TextView" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
