@@ -61,25 +61,32 @@
             android:text="Eye Color"
             android:visibility="visible" />
 
-        <CheckBox
-            android:id="@+id/BrownF"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Brown"
-            android:visibility="visible" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/BlueF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Blue" />
+            <CheckBox
+                android:id="@+id/BlueF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blue" />
 
-        <CheckBox
-            android:id="@+id/GreenF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Green"
-            android:visibility="visible" />
+            <CheckBox
+                android:id="@+id/BrownF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brown"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/GreenF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Green"
+                android:visibility="visible" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/Mother"
@@ -125,25 +132,33 @@
             android:text="Eye Color"
             android:visibility="visible" />
 
-        <CheckBox
-            android:id="@+id/BrownM"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Brown"
-            android:visibility="visible" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/BlueM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Blue" />
+            <CheckBox
+                android:id="@+id/BrownM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brown"
+                android:visibility="visible" />
 
-        <CheckBox
-            android:id="@+id/GreenM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Green"
-            android:visibility="visible" />
+            <CheckBox
+                android:id="@+id/GreenM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Green"
+                android:visibility="visible" />
+
+            <CheckBox
+                android:id="@+id/BlueM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blue" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/Generate"
@@ -166,42 +181,50 @@
             android:id="@+id/WidowB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/DimplesB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/EarlobesB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/FrecklesB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/BrownB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/GreenB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/BlueB"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="TextView" />
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

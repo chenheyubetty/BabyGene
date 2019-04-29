@@ -18,54 +18,54 @@ public class MainActivity extends AppCompatActivity {
     }
     private void generate() {
         Button generate = findViewById(R.id.Generate);
-        final TextView widowB = findViewById(R.id.WidowB);
-        final TextView dimplesB = findViewById(R.id.DimplesB);
-        final TextView earlobesB = findViewById(R.id.EarlobesB);
-        final TextView frecklesB = findViewById(R.id.FrecklesB);
-        final TextView brownB = findViewById(R.id.BrownB);
-        final TextView greenB = findViewById(R.id.GreenB);
-        final TextView blueB = findViewById(R.id.BlueB);
-        final Switch widowF = findViewById(R.id.WidowF);
-        final Switch dimplesF = findViewById(R.id.DimplesF);
-        final Switch earlobesF = findViewById(R.id.EarlobesF);
-        final Switch frecklesF = findViewById(R.id.FrecklesF);
-        final CheckBox brownF = findViewById(R.id.BrownF);
-        final CheckBox greenF = findViewById(R.id.GreenF);
-        //final CheckBox blueF = (CheckBox) findViewById(R.id.BlueF);
-        final Switch widowM = findViewById(R.id.WidowM);
-        final Switch dimplesM = findViewById(R.id.DimplesM);
-        final Switch earlobesM = findViewById(R.id.EarlobesM);
-        final Switch frecklesM = findViewById(R.id.FrecklesM);
-        final CheckBox brownM = findViewById(R.id.BrownM);
-        final CheckBox greenM = findViewById(R.id.GreenM);
-        //final CheckBox blueM = (CheckBox) findViewById(R.id.BlueM);2
-        String fatherEyeColor;
-        String motherEyeColor;
-        if (brownF.isChecked()) {
-            fatherEyeColor = "brown";
-        } else if (greenF.isChecked()) {
-            fatherEyeColor = "green";
-        } else {
-            fatherEyeColor = "blue";
-        }
-        if (brownM.isChecked()) {
-            motherEyeColor = "brown";
-        } else if (greenM.isChecked()) {
-            motherEyeColor = "green";
-        } else {
-            motherEyeColor = "blue";
-        }
-        final String[] eyeColor = eyeColor(fatherEyeColor, motherEyeColor);
-        final String widowBaby = "Widow's Peak: " + percentage(widowF.isChecked(), widowM.isChecked());
-        final String dimplesBaby = "Dimples: " + percentage(dimplesF.isChecked(), dimplesM.isChecked());
-        final String earlobesBaby = "Free earlobes: " + percentage(earlobesF.isChecked(), earlobesM.isChecked());
-        final String frecklesBaby = "Freckles: " + percentage(frecklesF.isChecked(), frecklesM.isChecked());
-        final String brownBaby = "Brown: " + eyeColor[0];
-        final String greenBaby = "Green: " + eyeColor[1];
-        final String blueBaby = "Blue: " + eyeColor[2];
         generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final TextView widowB = findViewById(R.id.WidowB);
+                final TextView dimplesB = findViewById(R.id.DimplesB);
+                final TextView earlobesB = findViewById(R.id.EarlobesB);
+                final TextView frecklesB = findViewById(R.id.FrecklesB);
+                final TextView brownB = findViewById(R.id.BrownB);
+                final TextView greenB = findViewById(R.id.GreenB);
+                final TextView blueB = findViewById(R.id.BlueB);
+                final Switch widowF = findViewById(R.id.WidowF);
+                final Switch dimplesF = findViewById(R.id.DimplesF);
+                final Switch earlobesF = findViewById(R.id.EarlobesF);
+                final Switch frecklesF = findViewById(R.id.FrecklesF);
+                final CheckBox brownF = findViewById(R.id.BrownF);
+                final CheckBox greenF = findViewById(R.id.GreenF);
+                //final CheckBox blueF = (CheckBox) findViewById(R.id.BlueF);
+                final Switch widowM = findViewById(R.id.WidowM);
+                final Switch dimplesM = findViewById(R.id.DimplesM);
+                final Switch earlobesM = findViewById(R.id.EarlobesM);
+                final Switch frecklesM = findViewById(R.id.FrecklesM);
+                final CheckBox brownM = findViewById(R.id.BrownM);
+                final CheckBox greenM = findViewById(R.id.GreenM);
+                //final CheckBox blueM = (CheckBox) findViewById(R.id.BlueM);2
+                String fatherEyeColor;
+                String motherEyeColor;
+                if (brownF.isChecked()) {
+                    fatherEyeColor = "brown";
+                } else if (greenF.isChecked()) {
+                    fatherEyeColor = "green";
+                } else {
+                    fatherEyeColor = "blue";
+                }
+                if (brownM.isChecked()) {
+                    motherEyeColor = "brown";
+                } else if (greenM.isChecked()) {
+                    motherEyeColor = "green";
+                } else {
+                    motherEyeColor = "blue";
+                }
+                final String[] eyeColor = eyeColor(fatherEyeColor, motherEyeColor);
+                final String widowBaby = "Widow's Peak: " + percentage(widowF.isChecked(), widowM.isChecked());
+                final String dimplesBaby = "Dimples: " + percentage(dimplesF.isChecked(), dimplesM.isChecked());
+                final String earlobesBaby = "Free earlobes: " + percentage(earlobesF.isChecked(), earlobesM.isChecked());
+                final String frecklesBaby = "Freckles: " + percentage(frecklesF.isChecked(), frecklesM.isChecked());
+                final String brownBaby = "Brown: " + eyeColor[0];
+                final String greenBaby = "Green: " + eyeColor[1];
+                final String blueBaby = "Blue: " + eyeColor[2];
                 widowB.setText(widowBaby);
                 dimplesB.setText(dimplesBaby);
                 earlobesB.setText(earlobesBaby);
