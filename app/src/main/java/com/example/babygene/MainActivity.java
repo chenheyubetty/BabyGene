@@ -177,11 +177,11 @@ public class MainActivity extends AppCompatActivity {
         TextView holiday = findViewById(R.id.Holiday);
         JsonParser parser = new JsonParser();
         JsonObject api = parser.parse(toShow).getAsJsonObject();
-        JsonArray holidays = api.getAsJsonArray("Holidays");
+        JsonArray holidays = api.getAsJsonArray("holidays");
         try {
             String name = holidays.get(0).getAsJsonObject().getAsJsonPrimitive("name").getAsString();
             holiday.setText(name);
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             String name = "It's not a holiday.";
             holiday.setText(name);
         }
