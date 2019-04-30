@@ -14,13 +14,6 @@
         tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/Baby"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BabyPredictor"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/Father"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,18 +47,18 @@
             android:text="Free Earlobes"
             android:visibility="visible" />
 
-        <TextView
-            android:id="@+id/EyeColorF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Eye Color"
-            android:visibility="visible" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/EyeColorF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eye Color"
+                android:visibility="visible" />
 
             <CheckBox
                 android:id="@+id/BrownF"
@@ -125,18 +118,18 @@
             android:text="Free Earlobes"
             android:visibility="visible" />
 
-        <TextView
-            android:id="@+id/EyeColorM"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:text="Eye Color"
-            android:visibility="visible" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/EyeColorM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eye Color"
+                android:visibility="visible" />
 
             <CheckBox
                 android:id="@+id/BrownM"
@@ -177,61 +170,54 @@
             android:textStyle="bold"
             android:typeface="serif" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/WidowB"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/WidowB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
+        <TextView
+            android:id="@+id/DimplesB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/DimplesB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
+        <TextView
+            android:id="@+id/EarlobesB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/EarlobesB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
+        <TextView
+            android:id="@+id/FrecklesB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/FrecklesB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
+        <TextView
+            android:id="@+id/BrownB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/BrownB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
+        <TextView
+            android:id="@+id/GreenB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
-            <TextView
-                android:id="@+id/GreenB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
-
-            <TextView
-                android:id="@+id/BlueB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="8sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/BlueB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="8sp" />
 
         <Button
             android:id="@+id/Birthday"
